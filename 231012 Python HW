@@ -1,0 +1,187 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPDL6an8PEA8scgIMP7o1Wj",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/oprostep/2023-fall_LP/blob/main/231012%20Python%20HW\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "231012 Python HW\n",
+        "================\n",
+        "202104591 김하준\n",
+        "----------------"
+      ],
+      "metadata": {
+        "id": "ajrivSHOGg6l"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# HW 0\n",
+        "> 편의성을 위해 함수를 선언하고 시작합니다"
+      ],
+      "metadata": {
+        "id": "t9KGfBcmHvn6"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "id": "QrgzttzkCPgJ"
+      },
+      "outputs": [],
+      "source": [
+        "# 지정한 횟수만큼 정수 입력을 받을때까지 반복합니다\n",
+        "def int_inputs(targetArray, iteration):\n",
+        "\n",
+        "    i = 0\n",
+        "\n",
+        "    while(i<iteration):\n",
+        "\n",
+        "        number = input(str(i+1)+\"번째 입력: \")\n",
+        "\n",
+        "        try:\n",
+        "            targetArray.append(int(number))\n",
+        "            i+=1\n",
+        "\n",
+        "        except ValueError:\n",
+        "            print(\"정수를 입력하세요\")"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#HW 1\n",
+        ">5개의 정수를 입력받고, 입력받은 숫자 중에  2번째로 높은 숫자를 출력합니다.<br>코드를 완성후 잘 작동하는 지를 알 수 있는 결과도 보내주세요."
+      ],
+      "metadata": {
+        "id": "VQ57HhgaHLAj"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "numbers = []\n",
+        "\n",
+        "int_inputs(numbers, 5)\n",
+        "\n",
+        "numbers.sort(reverse=True)\n",
+        "print(numbers[1])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "MMjWJz-HDvBN",
+        "outputId": "3fdf4f34-48dc-4548-9e5e-bd07881c480e"
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1번째 입력: 1\n",
+            "2번째 입력: 2\n",
+            "3번째 입력: 정수?\n",
+            "정수를 입력하세요\n",
+            "3번째 입력: 3\n",
+            "4번째 입력: 4\n",
+            "5번째 입력: 5\n",
+            "4\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# HW 2\n",
+        ">두개의 숫자를 입력받으면 그 중 큰 값을 출력하는 함수(function)을 만듭니다.<br>이제 두 개의 숫자를 입력받고 그 함수를 불러와서 큰 수를 찾고, 그 큰 수가  1이상 10이하이라면 그 숫자의 갯수만큼 별표 *를 찍어주세요.<br>만약의 큰수가  1이상 10이하 밖의 범위라면, 1이상 10이하의 숫자를 입력해 달라는 메세지가 나오도록 해주세요. <br>코드를 완성후 잘 작동하는 지를 알 수 있는 결과도 보내주세요. *을 찍는 경우를 보여주세요."
+      ],
+      "metadata": {
+        "id": "LGYkzE7NIFiu"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def max(a, b):\n",
+        "    if a > b:\n",
+        "        return a\n",
+        "    else:\n",
+        "        return b"
+      ],
+      "metadata": {
+        "id": "c0-eCnLTERBl"
+      },
+      "execution_count": 4,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "for n in range(2):\n",
+        "  numbers = []\n",
+        "\n",
+        "  int_inputs(numbers, 2)\n",
+        "\n",
+        "  max_number = max(numbers[0],numbers[1])\n",
+        "\n",
+        "  if 1 <= max_number <= 10:\n",
+        "    print(max_number * \"*\")\n",
+        "  else:\n",
+        "    print(\"1이상 10이하의 숫자를 입력하세요.\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "eRiDz97BETnv",
+        "outputId": "cf5a46a3-1429-4e4d-fb82-5e8088d39e14"
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1번째 입력: 1\n",
+            "2번째 입력: 10\n",
+            "**********\n",
+            "1번째 입력: -1\n",
+            "2번째 입력: 정수!\n",
+            "정수를 입력하세요\n",
+            "2번째 입력: -10\n",
+            "1이상 10이하의 숫자를 입력하세요.\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
